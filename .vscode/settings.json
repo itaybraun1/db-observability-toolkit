@@ -1,0 +1,37 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "postgres",
+            "driver": "PostgreSQL",
+            "name": "Azure-Postgres",
+            "password": "Trustno1",
+            "port": 5432,
+            "previewLimit": 50,
+            "server": "metis-pg.postgres.database.azure.com",
+            "username": "metisadmin@metis-pg"
+        },
+        {
+            "database": "employees",
+            "driver": "MySQL",
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "name": "MySQL1",
+            "password": "Trustno1",
+            "port": 3306,
+            "previewLimit": 50,
+            "server": "3.69.95.41",
+            "username": "root"
+        },
+        {
+            "previewLimit": 50,
+            "server": "database-2.cofhrj7zmyn4.eu-central-1.rds.amazonaws.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "database-2",
+            "database": "airbases",
+            "username": "postgres",
+            "password": "Trustno1"
+        }
+    ]
+}

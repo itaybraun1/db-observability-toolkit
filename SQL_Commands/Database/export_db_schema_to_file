@@ -1,0 +1,6 @@
+pg_dump --version
+pg_dump -h 
+pg_dump.exe -U username -d databasename -n schemaname > C:\mylocation\mydumpfilename.dmp
+
+
+pg_dump -h database-2.cofhrj7zmyn4.eu-central-1.rds.amazonaws.com -p 5432 -U postgres -W --schema-only -d airbases > schema_export1.sql

@@ -10,3 +10,6 @@ pg_size_pretty(pg_database_size(pg_database.datname)) AS size
 FROM pg_database
 ORDER BY pg_database.datname ASC;
 
+
+/* Desc: This query returns how many days the PG server is up*/
+SELECT date_trunc('second', current_timestamp - pg_postmaster_start_time()) as uptime;

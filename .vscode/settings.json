@@ -32,6 +32,15 @@
             "database": "airbases",
             "username": "postgres",
             "password": "Trustno1"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 54320,
+            "driver": "PostgreSQL",
+            "name": "Docker_local",
+            "database": "postgres",
+            "username": "postgres"
         }
     ]
 }

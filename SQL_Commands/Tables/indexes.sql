@@ -25,3 +25,7 @@ FROM pg_stat_user_indexes AS sui
             ON sui.relid = sio_ui.relid
             AND sui.indexrelid = sio_ui.indexrelid
  ORDER BY  sui.schemaname, sui.relname,   sui.indexrelname ;
+
+
+
+ 

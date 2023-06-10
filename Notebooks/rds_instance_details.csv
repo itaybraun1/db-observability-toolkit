@@ -1,0 +1,53 @@
+Property,Value
+DBInstanceIdentifier,database-2
+DBInstanceClass,db.m6g.large
+Engine,postgres
+DBInstanceStatus,available
+MasterUsername,postgres
+Endpoint,"{'Address': 'database-2.cofhrj7zmyn4.eu-central-1.rds.amazonaws.com', 'Port': 5432, 'HostedZoneId': 'Z1RLNUO7B9Q6NB'}"
+AllocatedStorage,200
+InstanceCreateTime,2022-03-24 17:25:30.255000+00:00
+PreferredBackupWindow,21:43-22:13
+BackupRetentionPeriod,3
+DBSecurityGroups,[]
+VpcSecurityGroups,"[{'VpcSecurityGroupId': 'sg-0c434c09330b44937', 'Status': 'active'}, {'VpcSecurityGroupId': 'sg-0c007e28b69799b98', 'Status': 'active'}]"
+DBParameterGroups,"[{'DBParameterGroupName': 'pg-dev-parameter-group', 'ParameterApplyStatus': 'in-sync'}]"
+AvailabilityZone,eu-central-1b
+DBSubnetGroup,"{'DBSubnetGroupName': 'default-vpc-093c63395660decec', 'DBSubnetGroupDescription': 'Created from the RDS Management Console', 'VpcId': 'vpc-093c63395660decec', 'SubnetGroupStatus': 'Complete', 'Subnets': [{'SubnetIdentifier': 'subnet-09e00f99c3c1b7d8f', 'SubnetAvailabilityZone': {'Name': 'eu-central-1b'}, 'SubnetOutpost': {}, 'SubnetStatus': 'Active'}, {'SubnetIdentifier': 'subnet-0878115ddeb6c4eb1', 'SubnetAvailabilityZone': {'Name': 'eu-central-1c'}, 'SubnetOutpost': {}, 'SubnetStatus': 'Active'}, {'SubnetIdentifier': 'subnet-092bf9fb61e6b97c1', 'SubnetAvailabilityZone': {'Name': 'eu-central-1a'}, 'SubnetOutpost': {}, 'SubnetStatus': 'Active'}]}"
+PreferredMaintenanceWindow,fri:23:19-fri:23:49
+PendingModifiedValues,{}
+LatestRestorableTime,2023-06-07 21:04:38+00:00
+MultiAZ,False
+EngineVersion,13.7
+AutoMinorVersionUpgrade,True
+ReadReplicaDBInstanceIdentifiers,[]
+LicenseModel,postgresql-license
+Iops,3000
+OptionGroupMemberships,"[{'OptionGroupName': 'default:postgres-13', 'Status': 'in-sync'}]"
+PubliclyAccessible,True
+StorageType,gp3
+DbInstancePort,0
+StorageEncrypted,True
+KmsKeyId,arn:aws:kms:eu-central-1:357242092635:key/ff5eaf3a-f8db-4a3a-bb9f-9eb69957e261
+DbiResourceId,db-QKTCUINSKWGYV3J4BJRAGPE2E4
+CACertificateIdentifier,rds-ca-2019
+DomainMemberships,[]
+CopyTagsToSnapshot,True
+MonitoringInterval,60
+EnhancedMonitoringResourceArn,arn:aws:logs:eu-central-1:357242092635:log-group:RDSOSMetrics:log-stream:db-QKTCUINSKWGYV3J4BJRAGPE2E4
+MonitoringRoleArn,arn:aws:iam::357242092635:role/rds-monitoring-role
+DBInstanceArn,arn:aws:rds:eu-central-1:357242092635:db:database-2
+IAMDatabaseAuthenticationEnabled,False
+PerformanceInsightsEnabled,True
+PerformanceInsightsKMSKeyId,arn:aws:kms:eu-central-1:357242092635:key/ff5eaf3a-f8db-4a3a-bb9f-9eb69957e261
+PerformanceInsightsRetentionPeriod,7
+EnabledCloudwatchLogsExports,"['postgresql', 'upgrade']"
+DeletionProtection,True
+AssociatedRoles,[]
+MaxAllocatedStorage,1000
+TagList,"[{'Key': 'copilot-application', 'Value': 'metis'}, {'Key': 'copilot-environment', 'Value': 'test'}]"
+CustomerOwnedIpEnabled,False
+ActivityStreamStatus,stopped
+BackupTarget,region
+NetworkType,IPV4
+StorageThroughput,125

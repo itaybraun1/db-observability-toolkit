@@ -1,0 +1,32 @@
+- name: SQL Command 1
+  description: This is the first SQL command
+  sql: SELECT * FROM table_name
+  db-engine: PostgreSQL
+  parameters:
+    - name: param1
+      data-type: int
+      default-value: 0
+    - name: param2
+      data-type: varchar
+      default-value: 'default'
+
+- name: SQL Command 2
+  description: This is the second SQL command
+  sql: SELECT column1, column2 FROM table_name WHERE condition
+  db-engine: MySQL
+  parameters:
+    - name: condition
+      data-type: boolean
+      default-value: true
+
+- name: SQL Command 3
+  description: This is the third SQL command
+  sql: INSERT INTO table_name (column1, column2) VALUES (value1, value2)
+  db-engine: SQLite
+  parameters:
+    - name: value1
+      data-type: int
+      default-value: 0
+    - name: value2
+      data-type: varchar
+      default-value: 'default'

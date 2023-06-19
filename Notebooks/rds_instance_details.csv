@@ -16,7 +16,7 @@ AvailabilityZone,eu-central-1b
 DBSubnetGroup,"{'DBSubnetGroupName': 'default-vpc-093c63395660decec', 'DBSubnetGroupDescription': 'Created from the RDS Management Console', 'VpcId': 'vpc-093c63395660decec', 'SubnetGroupStatus': 'Complete', 'Subnets': [{'SubnetIdentifier': 'subnet-09e00f99c3c1b7d8f', 'SubnetAvailabilityZone': {'Name': 'eu-central-1b'}, 'SubnetOutpost': {}, 'SubnetStatus': 'Active'}, {'SubnetIdentifier': 'subnet-0878115ddeb6c4eb1', 'SubnetAvailabilityZone': {'Name': 'eu-central-1c'}, 'SubnetOutpost': {}, 'SubnetStatus': 'Active'}, {'SubnetIdentifier': 'subnet-092bf9fb61e6b97c1', 'SubnetAvailabilityZone': {'Name': 'eu-central-1a'}, 'SubnetOutpost': {}, 'SubnetStatus': 'Active'}]}"
 PreferredMaintenanceWindow,fri:23:19-fri:23:49
 PendingModifiedValues,{}
-LatestRestorableTime,2023-06-07 21:04:38+00:00
+LatestRestorableTime,2023-06-14 20:34:37+00:00
 MultiAZ,False
 EngineVersion,13.7
 AutoMinorVersionUpgrade,True

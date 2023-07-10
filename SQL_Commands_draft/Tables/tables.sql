@@ -69,3 +69,27 @@ FROM pg_class AS c
     AND n.nspname NOT IN ('pg_catalog', 'information_schema') 
 ORDER BY 1, 2;
  
+
+-- Another version of Table Size, requires editing. Can be deleted when no longer needed. 
+SELECT 
+	current_database() as database,
+    n.nspname AS schema, 
+    c.relname AS table, 
+    n.nspname || '.' || c.relname as full_table_name,
+    pg_size_pretty(pg_table_size(n.nspname || '.' || c.relname)),
+    relpages AS pages, 
+    reltuples AS rows,
+    pg_relation_size(c.oid) / 1024 AS relation_size_kb,
+    
+    pg_table_size(c.oid) / 1024 AS table_size_kb, 
+    pg_indexes_size(c.oid) / 1024 AS indexes_size_kb, 
+    (pg_total_relation_size(c.oid) - pg_relation_size(c.oid) - pg_indexes_size(c.oid)) / 1024 AS toast_size_kb
+FROM pg_class AS c
+                  LEFT JOIN pg_namespace AS n
+                        ON (N.oid = c.relnamespace)
+WHERE relkind='r'
+            AND n.nspname NOT IN ('pg_catalog', 'information_schema') 
+ORDER BY 1, 2;
+
+
+select  pg_size_pretty(pg_table_size('postgres_air.booking'))

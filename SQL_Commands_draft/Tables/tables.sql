@@ -44,3 +44,28 @@ reloption can be: autovacuum_enabled=false*/
 SELECT * 
 FROM pg_class
 where relkind in ('p', 'r');
+
+/* Desc: table size includiing TOAST */
+-- The extracted name of the schema and table MUST be "schema" and "table", respectively.
+-- table-size
+SELECT 
+	n.nspname AS schema,
+    c.oid as table_oid,
+    c.relname AS table, 
+    relpages AS pages, 
+    reltuples AS rows,
+    sat.n_live_tup,
+    sat.n_dead_tup,
+    pg_relation_size(c.oid) / 1024 AS relation_size, 
+    pg_table_size(c.oid) / 1024 AS table_size, 
+    pg_indexes_size(c.oid) / 1024 AS indexes_size, 
+    (pg_total_relation_size(c.oid) - pg_relation_size(c.oid) - pg_indexes_size(c.oid)) / 1024 AS toast_size
+FROM pg_class AS c
+    LEFT JOIN pg_namespace AS n
+        ON (N.oid = c.relnamespace)
+    JOIN pg_stat_all_tables as sat
+ 		ON sat.relid = c.oid
+ WHERE relkind='r'
+    AND n.nspname NOT IN ('pg_catalog', 'information_schema') 
+ORDER BY 1, 2;
+ 

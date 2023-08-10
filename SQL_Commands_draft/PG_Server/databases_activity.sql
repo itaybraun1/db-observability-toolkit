@@ -1,3 +1,4 @@
+
 -- Current metrics of DB performance
 -- Use the query to take scapshots and compare it to the previous one
 

@@ -27,7 +27,7 @@ CREATE TABLE metis.pg_stat_database_snapshots (
     stats_reset timestamp without time zone,
     insert_date timestamp default current_timestamp
 );
--- Cron Job
+-- A Cron Job to populate the table metis.pg_stat_database_snapshots with db activity
 
 SELECT cron.schedule(
   	'pg_stat_database_snapshots',

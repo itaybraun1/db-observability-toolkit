@@ -1,5 +1,6 @@
 /******* Troubleshotting PG cron **************/
---Resources: https://github.com/citusdata/pg_cron
+--Resources: 
+-- > https://github.com/citusdata/pg_cron
 -- View existing cron jobs
 SELECT * 
 FROM cron.job;
@@ -39,4 +40,15 @@ LEFT JOIN pg_catalog.pg_description c
   AND c.classoid = 'pg_catalog.pg_extension'::pg_catalog.regclass 
 ORDER BY 1;
 
---
+-- The size of the Data Sets
+SELECT 
+	'metis.pg_stat_tables_activity_snapshots' as table_name,
+	count(*) as rows, 
+ 	max(insert_date) as max_insert_date
+FROM  metis.pg_stat_tables_activity_snapshots
+UNION ALL
+SELECT
+	'pg_stat_database_snapshots' as table_name,
+	count(*) as rows, 
+ 	max(insert_date) as max_insert_date
+FROM  metis.pg_stat_database_snapshots

@@ -2,31 +2,7 @@
 -- Version: 0.0.1
 -- Description: Snapshots of data from the system table pg_stat_database 
 -- Resources: https://pgstats.dev/pg_stat_database 
-DROP TABLE IF EXISTS metis.pg_stat_database_snapshots
 
-CREATE TABLE metis.pg_stat_database_snapshots (
-    snapshot_id SERIAL PRIMARY KEY,
-  	datid int,
-    datname text,
-    numbackends integer,
-    xact_commit bigint,
-    xact_rollback bigint,
-    blks_read bigint,
-    blks_hit bigint,
-    tup_returned bigint,
-    tup_fetched bigint,
-    tup_inserted bigint,
-    tup_updated bigint,
-    tup_deleted bigint,
-    conflicts bigint,
-    temp_files bigint,
-    temp_bytes bigint,
-    deadlocks bigint,
-    blk_read_time double precision,
-    blk_write_time double precision,
-    stats_reset timestamp without time zone,
-    insert_date timestamp default current_timestamp
-);
 -- A Cron Job to populate the table metis.pg_stat_database_snapshots with db activity
 
 SELECT cron.schedule(

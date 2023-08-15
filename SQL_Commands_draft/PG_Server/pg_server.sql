@@ -13,3 +13,7 @@ ORDER BY pg_database.datname ASC;
 
 /* Desc: This query returns how many days the PG server is up*/
 SELECT date_trunc('second', current_timestamp - pg_postmaster_start_time()) as uptime;
+
+--Configuration
+--The view pg_settings provides access to run-time parameters of the server. It is essentially an alternative interface to the SHOW and SET commands. It also provides access to some facts about each parameter that are not directly available from SHOW, such as minimum and maximum values.
+SELECT * FROM pg_settings

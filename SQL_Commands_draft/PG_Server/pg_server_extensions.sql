@@ -1,4 +1,7 @@
 -- Installed Extensions
+SELECT * FROM pg_extension;
+
+-- I think this is only for the current DB. 
 SELECT 
     e.extname AS "Name", 
     e.extversion AS "Version", 

@@ -3,12 +3,14 @@
 Introducing Metis Light: Get insights about your PostgreSQL Database Performance 
 In the realm of efficient database management, we introduce Metis Light - your **developer-first** DB observability solution. 
 
-## Guidlines
+## Collecting Metadata
+
+## Guidlines - What Developer-First Actually Means
 The product was built based on the following principles: 
-- **Simple Installation:** Seamlessly integrate PostgresMonitor with your setup, minimizing downtime and simplifying the installation process.
+- **Simple Installation:** Plain SQL, everything happens in the PostgresSQL. The server monitor itself with minimum "moving parts". No need of another installation of docker agents or Prometheus agent. 
 - **Immediate Value:** Gain instant access to essential metrics, real-time data, and historical analysis, enabling quick performance optimization.
-- **Minimal Impact:** Ensure the integrity of your source database with PostgresMonitor's discreet operation, capturing data without disruption.
-- **Logs and Alerts:** Track user activities and transactions while receiving customizable alerts, allowing prompt resolution of issues before they escalate.
+- **Minimal Impact:** The system collects different metadata at different frequencies, to ensure the monitoring processes doesn't generate an overhead of the source DB.  
+- **Troubleshooting:** Monitor the actual impact on performances, size on disk and jobs execution, to clearly see the system works as expected.  
 
 ## The UI: Jupyter Notebooks and Grafana Dashboards
 The project is an open-source initiative that offers Jupyter Notebooks as a useful resource for resolving database-related problems. These Notebooks provide SQL commands and insights, which are later integrated into the [Metis](https://www.metisdata.io/) DB guardrail platform to create an automated investigation flow.

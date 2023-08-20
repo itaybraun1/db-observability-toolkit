@@ -1,5 +1,15 @@
-# pg_monitor 
-An extension for monitoring a PostgreSQL database 
+# Metis Light
+A monitoring tool for PostgreSQL database 
+
+## Background
+Metis light is a developer-first monitoring tool for Postgres databases. It is a simple implementation of the full Metis plaform. It was built following the same principles: 
+- **Simple Installation:** Plain SQL, everything happens in the PostgresSQL. The server monitor itself with minimum "moving parts". No need of another installation of docker agents or Prometheus agent. 
+- **Immediate Value:** Gain instant access to essential metrics, real-time data, and historical analysis, enabling quick performance optimization.
+- **Minimal Impact:** Ensure the integrity of your source database with PostgresMonitor's discreet operation, capturing data without disruption.
+- **Logs and Alerts:** Track user activities and transactions while receiving customizable alerts, allowing prompt resolution of issues before they escalate.
+There are many Postgres monitoring solutions out there, but 
+For comprehensive database insights, we've developed specific jobs to monitor the system closely. No external agents like Prometheus are necessary. These insightful processes effectively track the database, identifying anomalies in real time.
+The code uses plain SQL and the pg_cron extension. It designed to work with any cloud vendor 
 
 ## About
 This extension collects metadata from the system table. It is used to understand time-based measures. 

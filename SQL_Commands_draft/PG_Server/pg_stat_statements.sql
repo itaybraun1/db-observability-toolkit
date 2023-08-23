@@ -1,5 +1,11 @@
 -- https://www.pgmustard.com/blog/queries-for-pg-stat-statements
 -- Top statements by total time
+
+--Settings
+select * 
+from pg_settings
+where name like 'pg_stat_statements.%'
+
 select
 	(total_exec_time + total_plan_time)::int as total_time,
 	total_exec_time::int,

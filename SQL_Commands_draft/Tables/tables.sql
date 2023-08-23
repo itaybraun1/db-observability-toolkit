@@ -91,5 +91,43 @@ WHERE relkind='r'
             AND n.nspname NOT IN ('pg_catalog', 'information_schema') 
 ORDER BY 1, 2;
 
+-- Show the top 25 tables and a 26th row which is a summary of all other tables. 
+WITH top_tables AS (
+    SELECT 
+        c.oid, 
+        relname, 
+        n.nspname, 
+        pg_total_relation_size(c.oid) AS total_size
+    FROM pg_catalog.pg_class AS c
+    JOIN pg_namespace n 
+        ON c.relnamespace = n.oid
+    WHERE relkind = 'r'
+        AND n.nspname NOT IN ('pg_toast', 'pg_catalog', 'information_schema')
+    ORDER BY pg_total_relation_size(c.oid) DESC
+    LIMIT 25
+)
 
-select  pg_size_pretty(pg_table_size('postgres_air.booking'))
+SELECT 
+    oid, 
+    relname, 
+    nspname, 
+    total_size
+FROM top_tables
+UNION ALL
+SELECT 
+    null, 
+    'ALL_OTHER_TABLES', 
+    null, 
+    sum(total_size)
+FROM (
+    SELECT pg_total_relation_size(c.oid) AS total_size
+    FROM pg_catalog.pg_class AS c
+    JOIN pg_namespace n 
+        ON c.relnamespace = n.oid
+    WHERE relkind = 'r'
+        AND n.nspname NOT IN ('pg_toast', 'pg_catalog', 'information_schema')
+    ORDER BY pg_total_relation_size(c.oid) DESC
+    OFFSET 25
+) AS remaining_tables;
+
+

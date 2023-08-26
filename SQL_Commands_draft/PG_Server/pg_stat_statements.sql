@@ -19,6 +19,25 @@ order by
 	total_time desc
 limit 50;
 
+
+-- Top queries by CPU, includig DB name
+SELECT 
+        ps.userid,
+        ps.dbid,
+        pd.datname as db_name,
+        round((ps.total_exec_time)::numeric, 2) as total_exec_time, 
+        ps.calls, 
+        round((ps.mean_exec_time)::numeric, 2) as mean_exec_time, 
+        round((100 * (ps.total_exec_time + ps.total_plan_time) 
+               / sum((ps.total_exec_time + ps.total_plan_time)::numeric) OVER ())::numeric, 2) as cpu_time_pct,
+        ps.query
+FROM pg_stat_statements as ps
+	JOIN pg_database as pd
+		ON pd.oid=ps.dbid
+ORDER BY (ps.total_exec_time)DESC 
+LIMIT 50;
+
+
 -- By mean time
 select
 	(mean_exec_time + mean_plan_time)::int as mean_time,

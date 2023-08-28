@@ -1,0 +1,6 @@
+[credentials]
+  ACCESS_KEY_ID = <AWS_ACCESS_KEY>
+  SECRET_ACCESS_KEY = <AWS_SECRET_KEY>
+[con_str]
+  PG_AIRBASES = postgresql://postgres:<PASSWORD>@<SERVER_NAME>.<AWS_REGION>.rds.amazonaws.com:5432/DB_NAME
+  

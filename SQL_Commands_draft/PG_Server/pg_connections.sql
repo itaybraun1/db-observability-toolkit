@@ -23,3 +23,27 @@ FROM pg_stat_activity
 WHERE pid <> pg_backend_pid() 
 AND state in ('idle in transaction', 'idle')
 
+
+-- Connections, idle and non idle
+SELECT * 
+FROM ( 
+select 
+	count(1) as total_connections, 
+  sum(case when state!='idle' then 1 else 0 end) as non_idle_connections, 
+  sum(case when state='idle' then 1 else 0 end) as idle_connections, 
+  round( sum(case when state='idle' then 1 else 0 end)::numeric / count(1), 2) as idle_connections_pct
+from pg_stat_activity
+) AS t1
+CROSS JOIN   
+	 (select setting as max_connections 
+    from pg_settings 
+    where name='max_connections') as s
+
+ -- Connections per DATABASE
+ SELECT 
+	datname as db_name, 
+	count(1) as num_non_idle_connections 
+FROM pg_stat_activity 
+WHERE state!='idle' 
+GROUP BY 1 
+ORDER BY num_non_idle_connections DESC;   

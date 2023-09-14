@@ -75,6 +75,15 @@ The configuration file should look similar to this:
 ### Step 3 - view the data using Jupyter Notebooks
 There are many ways to view Jupyter notebooks. One popular option is using VS Code with the Jupyter Extension. It can be found in the [VS Code marketplace](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter). 
   
+## Releases: 
+**Sep-01-2023:** First public version
+**Sep-15-2023:** New notebook about pg_cron extension (jobs execution history and performances), AWS RDS cpu utiliziation.  
+
+## Road Map
+- Add more notebooks, based on real-world problems 
+- Move the SQL commands out of the cells into a collection of SQL commands. This will improve the UX by making the cells much smallers and help the focusing on the results.
+- Replace the charts with Plotly for a better UI
+- Gereneare one requriements file to install all the required Python libraries.   
 
 ## Getting Involved
 We invite developers, database administrators, and enthusiasts to actively participate in the growth of the Database Observability Toolkit:
@@ -89,3 +98,4 @@ We invite developers, database administrators, and enthusiasts to actively parti
 
 # About Metis
 The DB Observability Toolkit created by [metis](https://www.metisdata.io/) . Metis platform prevent your database code from breaking production. You can [sign up here](https://oauth.app.metisdata.io/oauth/account/login?). The platform offers rich functionality and a generous free tier.  
+

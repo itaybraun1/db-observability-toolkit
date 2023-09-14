@@ -1,27 +1,38 @@
 {
     "sqltools.connections": [
         {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 54320,
+            "driver": "PostgreSQL",
+            "name": "Docker_local",
+            "database": "postgres",
+            "username": "postgres"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "0.0.0.0",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "local_docker_MySQL",
+            "group": "MySQL",
+            "database": "mysql",
+            "username": "root"
+        },
+        {
+            "previewLimit": 50,
+            "server": "metis-pg.postgres.database.azure.com",
+            "port": 5432,
             "database": "postgres",
             "driver": "PostgreSQL",
             "name": "Azure-Postgres",
             "password": "Trustno1",
-            "port": 5432,
-            "previewLimit": 50,
-            "server": "metis-pg.postgres.database.azure.com",
-            "username": "metisadmin@metis-pg"
-        },
-        {
-            "database": "employees",
-            "driver": "MySQL",
-            "mysqlOptions": {
-                "authProtocol": "default"
-            },
-            "name": "MySQL1",
-            "password": "Trustno1",
-            "port": 3306,
-            "previewLimit": 50,
-            "server": "3.69.95.41",
-            "username": "root"
+            "username": "metisadmin@metis-pg",
+            "group": "Postgres"
         },
         {
             "previewLimit": 50,
@@ -31,16 +42,23 @@
             "name": "database-2",
             "database": "airbases",
             "username": "postgres",
-            "password": "Trustno1"
+            "password": "Trustno1",
+            "group": "Postgres"
         },
         {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
             "previewLimit": 50,
-            "server": "localhost",
-            "port": 54320,
-            "driver": "PostgreSQL",
-            "name": "Docker_local",
-            "database": "postgres",
-            "username": "postgres"
+            "server": "3.69.95.41",
+            "port": 3306,
+            "database": "employees",
+            "driver": "MySQL",
+            "name": "MySQL_AWS_EC2",
+            "password": "Trustno1",
+            "username": "root",
+            "group": "MySQL"
         }
     ]
 }

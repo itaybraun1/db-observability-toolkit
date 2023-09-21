@@ -10,20 +10,25 @@ cache_hit_ratio - percentage of blocks read from the buffer cache only vs the to
 */
 SELECT 
 	datid as dbid, 
-  datname as db_name, 
-  numbackends, 
-  xact_commit, 
-  xact_rollback,
-  blks_read, 
-  blks_hit, 
-  round(blks_hit / (blks_read + blks_hit)::numeric, 4) as cache_hit_ratio,
-  tup_returned, 
-  tup_fetched, 
-  tup_inserted, 
-  tup_updated, 
-  tup_deleted, 
-  temp_files,
-  deadlocks
-  
+    datname as db_name, 
+    numbackends, 
+    xact_commit, 
+    xact_rollback,
+    blks_read, 
+    blks_hit, 
+    CASE 
+        WHEN (blks_read + blks_hit) = 0 THEN NULL
+        ELSE round(blks_hit / (blks_read + blks_hit)::numeric, 4)
+    END as cache_hit_ratio,
+    tup_returned, 
+    tup_fetched, 
+    tup_inserted, 
+    tup_updated, 
+    tup_deleted, 
+    temp_files,
+    deadlocks,
+    pg_database_size(datname) / 1024 as db_size
 FROM pg_stat_database
+WHERE datname = current_database();
 
+-- WHERE datname = current_database();

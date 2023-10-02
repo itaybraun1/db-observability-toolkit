@@ -40,10 +40,4 @@ CROSS JOIN
     where name='max_connections') as s
 
  -- Connections per DATABASE
- SELECT 
-	datname as db_name, 
-	count(1) as num_non_idle_connections 
-FROM pg_stat_activity 
-WHERE state!='idle' 
-GROUP BY 1 
-ORDER BY num_non_idle_connections DESC;   
+    

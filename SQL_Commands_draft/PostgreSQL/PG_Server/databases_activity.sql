@@ -29,6 +29,5 @@ SELECT
     deadlocks,
     pg_database_size(datname) / 1024 as db_size
 FROM pg_stat_database
-WHERE datname = current_database();
 
 -- WHERE datname = current_database();

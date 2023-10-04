@@ -39,5 +39,13 @@ CROSS JOIN
     from pg_settings 
     where name='max_connections') as s
 
- -- Connections per DATABASE
-    
+ -- Connections per DATABASE. A query for the MMC always has a limit. 
+SELECT 
+	datname as database_name,
+  sum(case when state!='active' then 1 else 0 end) as non_active_connections, 
+  sum(case when state='active' then 1 else 0 end) as active_connections
+FROM pg_stat_activity
+WHERE datname IS NOT NULL
+GROUP BY datname 
+ORDER BY active_connections DESC
+LIMIT 100;  

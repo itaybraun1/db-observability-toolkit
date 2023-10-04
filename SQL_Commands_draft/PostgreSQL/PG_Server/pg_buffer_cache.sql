@@ -12,7 +12,17 @@ SELECT
 FROM pg_buffercache b
 INNER JOIN pg_database d ON b.reldatabase = d.oid
 CROSS JOIN total_num_of_buffers t
-
 GROUP BY d.datname, 
 	t,count_buffers
 ORDER BY d.datname;
+
+-- A Query for the MMC
+SELECT 
+    d.datname AS db_name, 
+    count(*) AS count_buffers,
+    count(*) * 8 AS total_buffers_size
+FROM pg_buffercache b
+INNER JOIN pg_database d ON b.reldatabase = d.oid
+GROUP BY d.datname
+ORDER BY total_buffers_size DESC
+LIMIT 100;

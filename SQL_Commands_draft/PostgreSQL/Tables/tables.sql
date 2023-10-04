@@ -70,6 +70,31 @@ FROM pg_class AS c
 ORDER BY 1, 2;
  
 
+-- Similar query for the MMC. Limited to 200 tables. Sorted by their size
+SELECT
+    current_database() as db_name,
+    n.nspname AS schema,
+    c.oid as table_oid,
+    c.relname AS table, 
+    c.relpages AS pages, 
+    reltuples AS rows,
+    sat.n_live_tup,
+    sat.n_dead_tup,
+    pg_relation_size(c.oid) / 1024  AS relation_size, 
+    pg_table_size(c.oid) / 1024 AS table_size, 
+    pg_indexes_size(c.oid) / 1024 AS indexes_size, 
+    (pg_total_relation_size(c.oid) - pg_relation_size(c.oid) - pg_indexes_size(c.oid)) / 1024 AS toast_size
+FROM pg_class AS c
+    LEFT JOIN pg_namespace AS n
+        ON (N.oid = c.relnamespace)
+    JOIN pg_stat_all_tables as sat
+ 		ON sat.relid = c.oid
+ WHERE relkind='r'
+    AND n.nspname NOT IN ('pg_catalog', 'information_schema') 
+ORDER BY table_size desc
+LIMIT 2000;
+
+
 -- Another version of Table Size, requires editing. Can be deleted when no longer needed. 
 SELECT 
 	current_database() as database,

@@ -1,0 +1,30 @@
+{"METRIC_COLLECTION": {
+    "DS_INDEXES_ACTIVITY": {
+      "level": "DATABASE",
+      "datastore": "influx",
+      "description": "The main database activity and size metrics",
+      "datastoreMetadata": {
+        "mappings": {
+          "metrics": {
+            "relid": "relid",
+            "schema_name": "schema_name",
+            "table_name": "table_name",
+            "indexrelid": "indexrelid",
+            "index_name": "index_name",
+            "index_size": "index_size",
+            "index_scans": "index_scans",
+            "index_rows_reads": "index_rows_reads",
+            "index_rows_writes": "index_rows_writes",
+            "pages_read_from_disk": "pages_read_from_disk",
+            "pages_read_from_buffer": "pages_read_from_buffer"
+          },
+          "tags": [
+            "apiKey",
+            "deviceId"
+          ],
+          "timestamp": "ORIGINAL"
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,28 @@
 -- https://www.pgmustard.com/blog/queries-for-pg-stat-statements
+-- https://www.postgresql.org/docs/current/pgstatstatements.html
 -- Top statements by total time
 
 --Settings
+-- A Query for the MMC v2: total exec time (excl planning), calls, read
+-- total_plan_time double precision: Total time spent planning the statement, in milliseconds (if pg_stat_statements.track_planning is enabled, otherwise zero)
+-- blk_read_time double precision: Total time the statement spent reading blocks, in milliseconds (if track_io_timing is enabled, otherwise zero)
+SELECT  
+	queryid, 
+  query,
+  calls,
+	round(total_exec_time::numeric, 3) as exec_time,
+  round(total_plan_time::numeric, 3) as exec_time,
+  round((total_exec_time + total_plan_time)::numeric,3) as total_exec_time,
+	rows,
+	(shared_blks_hit + shared_blks_read + shared_blks_dirtied + shared_blks_written 
+   + local_blks_hit + local_blks_read + local_blks_dirtied + local_blks_written 
+   + temp_blks_read + temp_blks_written) * 8 as total_io_kb, 
+  (temp_blks_read + temp_blks_written) * 8 as temp_io_kb, 
+  blk_read_time, 
+  blk_write_time
+FROM pg_stat_statements
+WHERE dbid = (SELECT oid FROM pg_database WHERE datname = current_database());
+
 select * 
 from pg_settings
 where name like 'pg_stat_statements.%'

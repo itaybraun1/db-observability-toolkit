@@ -1,6 +1,0 @@
-#datatype measurement,tag,double,double,dateTime:RFC3339
-m,host,cpu,free_memory,time
-host_metrics_2,host1,64.23,8000,2023-09-25T00:00:00Z
-host_metrics_2,host1,66.00,8000,2023-09-25T0:01:00Z
-host_metrics_2,host1,67.14,8000,2023-09-25T00:02:00Z
-host_metrics_2,host1,69.90,8000,2023-09-25T00:03:00Z

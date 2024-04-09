@@ -1,4 +1,4 @@
---longest_running_active_queries
+--Longest_running_active_queries
 --This view is intended to be typically used by administrators in determining which queries to focus on. However it can be used for reporting and alerting as well.
 -- Filter only command run more than 5 min
 SELECT 

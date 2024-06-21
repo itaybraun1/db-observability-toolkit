@@ -60,5 +60,6 @@
             "username": "root",
             "group": "MySQL"
         }
-    ]
+    ],
+    "taipyStudio.gUI.elementsFilePaths": []
 }
